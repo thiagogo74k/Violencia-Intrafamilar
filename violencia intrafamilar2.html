@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violencia Intrafamiliar - U.E. Adolfo Kolping</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRQMOH3I4xn0CvFzw03Ry2ZN0wCZj5dbcYjA&s');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        h1, h2 {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2em;
+            margin: 10px 0;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px;
+            z-index: 2;
+        }
+
+        #togglePresentation {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+            height: 100vh;
+            padding: 50px;
+            box-sizing: border-box;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, transparent 20%, #ffffff10 20%, #ffffff10 40%, transparent 40%, transparent 60%, #ffffff10 60%, #ffffff10 80%, transparent 80%);
+            animation: backgroundAnimation 20s linear infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+
+        .slide h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #ff00ff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide p, .slide ul {
+            font-size: 1.2em;
+            text-align: left;
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .nav-buttons button {
+            background-color: #ff00ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #00ffff;
+        }
+
+        #video-container {
+            margin-top: 30px;
+        }
+
+        .web-version h2 {
+            color: #8e44ad;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 10px;
+        }
+
+        .web-version p, .web-version ul {
+            line-height: 1.6;
+        }
+
+        #musicControl {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: #ff00ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #musicControl:hover {
+            background-color: #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VIOLENCIA INTRAFAMILIAR</h1>
+        <h2>U.E. ADOLFO KOLPING</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXLpQAOW8GvIi-vzgIUp4cK6S14w7QZq2ryA&s" alt="Logo" class="logo">
+        <button id="togglePresentation">Iniciar Presentación</button>
+    </header>
+
+    <div class="content web-version">
+        <h2>Definición y Tipos de Violencia Intrafamiliar</h2>
+        <p><strong>Definición:</strong> La violencia intrafamiliar es cualquier acto de abuso, maltrato o agresión que ocurre dentro del entorno familiar, causando daño físico, emocional o psicológico a uno o más miembros de la familia.</p>
+        <h3>Tipos de Violencia:</h3>
+        <ul>
+            <li><strong>Física:</strong> Golpes, empujones, quemaduras, etc.</li>
+            <li><strong>Emocional/Psicológica:</strong> Insultos, manipulación, aislamiento social.</li>
+            <li><strong>Sexual:</strong> Cualquier acto sexual no consentido.</li>
+            <li><strong>Económica:</strong> Control del dinero, impedir que la víctima trabaje.</li>
+            <li><strong>Verbal:</strong> Gritos, amenazas, humillaciones.</li>
+        </ul>
+
+        <h2>Causas de la Violencia Intrafamiliar</h2>
+        <p><strong>Factores de Riesgo:</strong> Estrés económico, abuso de sustancias, antecedentes de violencia, falta de habilidades de resolución de conflictos.</p>
+        <h3>Ciclo de la Violencia:</h3>
+        <ol>
+            <li><strong>Acumulación de tensión:</strong> Aumentan las tensiones y conflictos.</li>
+            <li><strong>Incidente de violencia:</strong> Se produce el acto de violencia.</li>
+            <li><strong>Fase de luna de miel:</strong> El agresor pide perdón, promete cambiar, y muestra afecto.</li>
+        </ol>
+
+        <h2>Consecuencias de la Violencia Intrafamiliar</h2>
+        <h3>Impacto en la Víctima:</h3>
+        <ul>
+            <li><strong>Físico:</strong> Lesiones, problemas de salud crónicos.</li>
+            <li><strong>Emocional:</strong> Ansiedad, depresión, baja autoestima.</li>
+            <li><strong>Psicológico:</strong> Trastornos de estrés postraumático (TEPT).</li>
+        </ul>
+        <h3>Impacto en la Familia:</h3>
+        <ul>
+            <li><strong>Niños:</strong> Problemas de comportamiento, rendimiento escolar deficiente.</li>
+            <li><strong>Otros miembros:</strong> Estrés, tensión, división familiar.</li>
+        </ul>
+
+        <h2>Prevención y Recursos</h2>
+        <h3>Estrategias de Prevención:</h3>
+        <ul>
+            <li>Educación en la resolución pacífica de conflictos.</li>
+            <li>Programas de concientización y sensibilización.</li>
+            <li>Fomento de relaciones saludables.</li>
+        </ul>
+        <h3>Recursos y Apoyo:</h3>
+        <ul>
+            <li><strong>Línea 156 (La Paz):</strong>
+                <ul>
+                    <li>Línea de emergencia para víctimas de violencia en la ciudad de La Paz.</li>
+                    <li>Ofrece atención y rescate a víctimas de cualquier tipo de violencia.</li>
+                    <li>Disponible las 24 horas, los 7 días de la semana.</li>
+                    <li>Teléfono: 156</li>
+                </ul>
+            </li>
+            <li><strong>Pro Mujer Helpline:</strong>
+                <ul>
+                    <li>Línea nacional que brinda apoyo a mujeres que experimentan violencia.</li>
+                    <li>Ofrece asesoramiento, intervención en crisis, orientación legal y apoyo psicológico.</li>
+                    <li>Teléfono: 800 10 4100</li>
+                </ul>
+            </li>
+            <li><strong>UN Women Bolivia:</strong>
+                <ul>
+                    <li>Ofrece apoyo y recursos para mujeres que sufren violencia.</li>
+                    <li>Teléfono: +591 (2) 2770222</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Documental sobre Violencia Intrafamiliar</h2>
+        <div id="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YPbP2gmU_7A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <h2>Leyes y Medidas de Protección</h2>
+        <h3>Leyes</h3>
+        <h4>Ley Contra la Violencia en la Familia o Doméstica (Ley 1674):</h4>
+        <ul>
+            <li>Establece la política del Estado contra la violencia en la familia, define los hechos que constituyen violencia, y las sanciones correspondientes.</li>
+            <li>Protege la integridad física, psicológica, moral y sexual de cada integrante del núcleo familiar.</li>
+        </ul>
+        <h4>Ley N° 348 - Ley Integral para Garantizar a las Mujeres una Vida Libre de Violencia:</h4>
+        <ul>
+            <li>Tiene como objetivo erradicar todas las formas de violencia hacia las mujeres.</li>
+            <li>Establece la creación de juzgados especializados, fiscales móviles, y la obligación de investigación de oficio.</li>
+            <li>Reconoce el feminicidio como delito penal con 30 años de cárcel sin derecho a indulto.</li>
+        </ul>
+        <h3>Procedimientos Legales</h3>
+        <ul>
+            <li><strong>Denuncia:</strong> La víctima o cualquier persona puede presentar una denuncia ante las autoridades competentes.</li>
+            <li><strong>Protección Inmediata:</strong> Las víctimas tienen derecho a medidas de protección inmediata, como órdenes de alejamiento y refugio temporal.</li>
+            <li><strong>Atención Integral:</strong> Las víctimas tienen derecho a recibir atención psicológica, social, y legal gratuita y especializada.</li>
+            <li><strong>Investigación:</strong> Las autoridades deben iniciar una investigación de oficio independientemente.</li>
+        </ul>
+    </div>
+
+    <!-- Diapositivas para la presentación -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Definición y Tipos de Violencia Intrafamiliar</h2>
+            <p>La violencia intrafamiliar es cualquier acto de abuso, maltrato o agresión que ocurre dentro del entorno familiar, causando daño físico, emocional o psicológico a uno o más miembros de la familia.</p>
+            <ul>
+                <li>Física: Golpes, empujones, quemaduras</li>
+                <li>Emocional/Psicológica: Insultos, manipulación</li>
+                <li>Sexual: Actos no consentidos</li>
+                <li>Económica: Control del dinero</li>
+                <li>Verbal: Gritos, amenazas</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Causas de la Violencia Intrafamiliar</h2>
+            <p><strong>Factores de Riesgo:</strong> Estrés económico, abuso de sustancias, antecedentes de violencia, falta de habilidades de resolución de conflictos.</p>
+            <h3>Ciclo de la Violencia:</h3>
+            <ol>
+                <li>Acumulación de tensión</li>
+                <li>Incidente de violencia</li>
+                <li>Fase de luna de miel</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Consecuencias de la Violencia Intrafamiliar</h2>
+            <h3>Impacto en la Víctima:</h3>
+            <ul>
+                <li>Físico: Lesiones, problemas de salud crónicos</li>
+                <li>Emocional: Ansiedad, depresión, baja autoestima</li>
+                <li>Psicológico: Trastornos de estrés postraumático (TEPT)</li>
+            </ul>
+            <h3>Impacto en la Familia:</h3>
+            <ul>
+                <li>Niños: Problemas de comportamiento, rendimiento escolar deficiente</li>
+                <li>Otros miembros: Estrés, tensión, división familiar</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Prevención y Recursos</h2>
+            <h3>Estrategias de Prevención:</h3>
+            <ul>
+                <li>Educación en resolución pacífica de conflictos</li>
+                <li>Programas de concientización</li>
+                <li>Fomento de relaciones saludables</li>
+            </ul>
+            <h3>Recursos y Apoyo:</h3>
+            <ul>
+                <li>Línea 156 (La Paz): 156</li>
+                <li>Pro Mujer Helpline: 800 10 4100</li>
+                <li>UN Women Bolivia: +591 (2) 2770222</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Leyes y Medidas de Protección</h2>
+            <h3>Leyes Principales:</h3>
+            <ul>
+                <li>Ley Contra la Violencia en la Familia o Doméstica (Ley 1674)</li>
+                <li>Ley N° 348 - Ley Integral para Garantizar a las Mujeres una Vida Libre de Violencia</li>
+            </ul>
+            <h3>Procedimientos Legales:</h3>
+            <ul>
+                <li>Denuncia</li>
+                <li>Protección Inmediata</li>
+                <li>Atención Integral</li>
+                <li>Investigación</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Documental sobre Violencia Intrafamiliar</h2>
+            <div id="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YPbP2gmU_7A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <button onclick="changeSlide(-1)">Anterior</button>
+        <button onclick="changeSlide(1)">Siguiente</button>
+    </div>
+
+    <button id="musicControl">Reproducir Música</button>
+    <audio id="backgroundMusic" loop>
+        <source src="URL_DE_TU_ARCHIVO_DE_AUDIO" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const content = document.querySelector('.content');
+        const toggleButton = document.getElementById('togglePresentation');
+        const musicControl = document.getElementById('musicControl');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        let isPresentation = false;
+        let isMusicPlaying = false;
+
+        function changeSlide(direction) {
+            slides[currentSlide].style.display = 'none';
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].style.display = 'flex';
+            slides[currentSlide].style.opacity = '0';
+            setTimeout(() => {
+                slides[currentSlide].style.opacity = '1';
+            }, 50);
+        }
+
+        function togglePresentation() {
+            isPresentation = !isPresentation;
+            if (isPresentation) {
+                content.style.display = 'none';
+                slides[0].style.display = 'flex';
+                document.querySelector('.nav-buttons').style.display = 'block';
+                toggleButton.textContent = 'Volver a Página Web';
+                musicControl.style.display = 'block';
+            } else {
+                slides.forEach(slide => slide.style.display = 'none');
+                content.style.display = 'block';
+                document.querySelector('.nav-buttons').style.display = 'none';
+                toggleButton.textContent = 'Iniciar Presentación';
+                musicControl.style.display = 'none';
+                backgroundMusic.pause();
+                musicControl.textContent = 'Reproducir Música';
+                isMusicPlaying = false;
+            }
+        }
+
+        musicControl.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                backgroundMusic.pause();
+                musicControl.textContent = 'Reproducir Música';
+            } else {
+                backgroundMusic.play();
+                musicControl.textContent = 'Pausar Música';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+
+        toggleButton.addEventListener('click', togglePresentation);
+        musicControl.style.display = 'none';
+    </script>
+</body>
+</html>
